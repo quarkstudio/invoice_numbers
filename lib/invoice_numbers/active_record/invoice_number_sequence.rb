@@ -1,6 +1,6 @@
 class InvoiceNumberSequence < ActiveRecord::Base
   def self.by_sequence_name( sequence_name )
-    InvoiceNumberSequence.find_or_create_by(name: sequence_name)
+    InvoiceNumberSequence.where(name: sequence_name).first_or_create!
   end
 
   def increment!
